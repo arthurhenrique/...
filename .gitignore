@@ -3,7 +3,7 @@
 !.gitconfig
 !.tmux.conf
 !.zshrc
-!.vimrc
+!.spf13-vim-3/.vimrc
 !.profile
 !.inputrc
 
