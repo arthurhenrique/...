@@ -16,4 +16,6 @@ export SDKMAN_DIR="/home/arthur/.sdkman"
 export PATH=$PATH:/usr/local/go/bin:/home/arthur/anaconda3/condabin
 export GOPATH=$HOME/go
 
+source $HOME/.profile
+
 [ -z "$TMUX"   ] && { tmux attach || exec tmux new-session && exit; }

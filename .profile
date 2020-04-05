@@ -100,3 +100,10 @@ alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' 
 
 # SHA1
 alias sha1='openssl sha1'
+
+# EDITOR
+alias vimdiff='nvim -d'
+export EDITOR=nvim
+
+alias vim="nvim"
+alias vi="nvim"

@@ -86,7 +86,6 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " (Programming) languages support
 Plugin 'elzr/vim-json'
 Plugin 'elixir-editors/vim-elixir'
-Plugin 'fatih/vim-go'
 Plugin 'gkz/vim-ls'
 Plugin 'uarun/vim-protobuf'
 
@@ -305,3 +304,8 @@ hi GitGutterAdd ctermfg=34 ctermfg=White guifg=#FFFFFF guibg=#2ECC71 cterm=Bold
 hi GitGutterDelete ctermbg=161 ctermfg=White guifg=#FFFFFF guibg=#E74C3C cterm=Bold
 hi GitGutterChange ctermbg=32 ctermfg=White guifg=#FFFFFF guibg=#2980B9 cterm=Bold
 
+" Python run
+nnoremap ,t :!python ./main.py<CR>
+
+" Nvim
+set clipboard=unnamedplus
