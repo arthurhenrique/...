@@ -149,7 +149,7 @@ set wildmenu
 set ruler
 set lbr
 set tw=500
-"set nu
+set nu
 set numberwidth=5
 set conceallevel=1
 set relativenumber
@@ -205,7 +205,8 @@ au BufWritePre * StripWhitespace
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " Error messages
-au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%120v.\+', -1)
+
+" au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%120v.\+', -1)
 
 " Run Startify on new tabs
 au VimEnter * let t:startify_new_tab = 1
@@ -253,19 +254,19 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 hi NERDTreeOpenable guifg=#27CBC0
 hi NERDTreeClosable guifg=#DA3C78
+let NERDTreeShowHidden=1
 
 " Syntastic
-let g:syntastic_ocaml_checkers = ['merlin']
-let g:syntastic_mode_map = {'mode': 'passive'}
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = "\u2717"
-let g:syntastic_warning_symbol = "\uf071"
+"let g:syntastic_mode_map = {'mode': 'passive'}
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_error_symbol = "\u2717"
+"let g:syntastic_warning_symbol = "\uf071"
 
 " Syntastic
 hi SyntasticErrorLine ctermbg=161
-hi SyntasticErrorSign ctermbg=161 ctermfg=White cterm=Bold
+    hi SyntasticErrorSign ctermbg=161 ctermfg=White cterm=Bold
 hi SyntasticWarningSign ctermbg=178 ctermfg=White cterm=Bold
 
 " Airline
