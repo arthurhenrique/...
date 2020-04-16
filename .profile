@@ -128,7 +128,7 @@ then
     export price_vega_preta="$(curl https://www.kabum.com.br/cgi-local/site/produtos/descricao.cgi\?codigo\=81454\&origem\=48 | grep -Po 'price\":(\d+\.\d+)' | cut -d: -f2)"
     export price_vega_blue="$(curl  https://www.kabum.com.br/cgi-local/site/produtos/descricao.cgi\?codigo\=81455\&origem\=48  | grep -Po 'price\":(\d+\.\d+)' | cut -d: -f2)"
     clear
-    echo \[PRICE ALERT\] cadeira vega preta: $price_vega_preta
-    echo \[PRICE ALERT\] cadeira vega azul: $price_vega_blue
+    echo \[PRICE ALERT\] cadeira vega preta: $price_vega_preta | tee /tmp/"$(date +"%m-%d-%y")"
+    echo \[PRICE ALERT\] cadeira vega azul: $price_vega_blue | tee /tmp/"$(date +"%m-%d-%y")"
     sleep 15
 fi
