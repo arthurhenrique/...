@@ -120,3 +120,15 @@ export EDITOR=nvim
 
 alias vim="nvim"
 alias vi="nvim"
+
+# ALERT
+if [[ ! -e /tmp/"$(date +"%m-%d-%y")" ]];
+then
+    touch /tmp/"$(date +"%m-%d-%y")"
+    export price_vega_preta="$(curl https://www.kabum.com.br/cgi-local/site/produtos/descricao.cgi\?codigo\=81454\&origem\=48 | grep -Po 'price\":(\d+\.\d+)' | cut -d: -f2)"
+    export price_vega_blue="$(curl  https://www.kabum.com.br/cgi-local/site/produtos/descricao.cgi\?codigo\=81455\&origem\=48  | grep -Po 'price\":(\d+\.\d+)' | cut -d: -f2)"
+    clear
+    echo \[PRICE ALERT\] cadeira vega preta: $price_vega_preta
+    echo \[PRICE ALERT\] cadeira vega azul: $price_vega_blue
+    sleep 15
+fi

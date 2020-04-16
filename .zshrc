@@ -1,8 +1,10 @@
 export ZSH="/home/arthur/.oh-my-zsh"
 
-ZSH_THEME="norm"
+ZSH_THEME="maran"
 
-plugins=(git)
+plugins=(git zsh-completions)
+autoload -U compinit && compinit
+
 
 source $ZSH/oh-my-zsh.sh
 
