@@ -132,3 +132,4 @@ then
     echo \[PRICE ALERT\] cadeira vega azul: $price_vega_blue | tee -a /tmp/"$(date +"%m-%d-%y")"
     sleep 15
 fi
+
