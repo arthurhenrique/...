@@ -104,6 +104,7 @@ alias gd='git diff '
 alias gco='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all '
+alias git_copy_last_hash='git log -1 --pretty=%H | clipcopy'
 
 alias got='git '
 alias get='git '
@@ -120,6 +121,10 @@ export EDITOR=nvim
 
 alias vim="nvim"
 alias vi="nvim"
+
+# VPN
+
+alias vpn="cd ~/vpn; nohup ./fortisslvpn.sh &; cd -"
 
 # ALERT
 if [[ ! -e /tmp/"$(date +"%m-%d-%y")" ]];
