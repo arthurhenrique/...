@@ -20,7 +20,7 @@ export GOPATH=$HOME/go
 
 source $HOME/.profile
 
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 
 [ -z "$TMUX"   ] && { tmux attach || exec tmux new-session && exit; }
 
