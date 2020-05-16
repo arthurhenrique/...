@@ -167,8 +167,20 @@ pyclean () {
 }
 
 #######################################################################
-# PATH
+# Init
 #######################################################################
+# Python
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PATH="$PATH:$HOME/anaconda3/condabin"
+# Go
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH="$HOME/go"
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+# JVM
+export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 #######################################################################
