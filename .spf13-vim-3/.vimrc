@@ -88,6 +88,7 @@ Plugin 'elzr/vim-json'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'gkz/vim-ls'
 Plugin 'uarun/vim-protobuf'
+Plugin 'fatih/vim-go'
 
 " Colorschemes
 Plugin 'flazz/vim-colorschemes'
@@ -104,6 +105,11 @@ Plugin 'liuchengxu/space-vim-dark'
 " Daily tasks
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+
+" Ag search
+
+Plugin 'mileszs/ack.vim'
+
 
 call vundle#end()
 
@@ -310,3 +316,10 @@ nnoremap ,t :!python ./main.py<CR>
 
 " Nvim
 set clipboard=unnamedplus
+
+" Remove bell
+set belloff=all
+
+" Silver search grep like
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
