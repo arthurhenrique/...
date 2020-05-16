@@ -1,10 +1,11 @@
-
+#######################################################################
+# Alias
+#######################################################################
 # Alias's to modified commands
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -iv'
 alias mkdir='mkdir -p'
-alias ps='ps auxf'
 alias ping='ping -c 10'
 alias less='less -R'
 alias cls='clear'
@@ -106,35 +107,97 @@ alias gk='gitk --all&'
 alias gx='gitx --all '
 alias git_copy_last_hash='git log -1 --pretty=%H | clipcopy'
 
+alias gitkrak='export REPO=$(git remote get-url --all origin); echo $REPO; git remote remove origin; gitkraken -p $(pwd) && git remote add origin "$REPO"; git remote -v'
 alias got='git '
 alias get='git '
-
-# Show all logs in /var/log
-alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 
 # SHA1
 alias sha1='openssl sha1'
 
 # EDITOR
-alias vimdiff='nvim -d'
+# vim
 export EDITOR=nvim
-
+alias vimdiff='nvim -d'
 alias vim="nvim"
 alias vi="nvim"
+# intellij
 
 # VPN
-
 alias vpn="cd ~/vpn; nohup ./fortisslvpn.sh &; cd -"
 
-# ALERT
-if [[ ! -e /tmp/"$(date +"%m-%d-%y")" ]];
+# K8s
+alias pods='kubectl get pods -n'
+alias deployments='kubectl get deployments -n'
+alias kjobs='kubectl get jobs -n'
+alias redis='docker run -it --rm redis redis-cli -p 6379'
+alias psql='docker run -it --rm -v /tmp:/tmp postgres psql'
+alias sqlcmd='docker run --rm --network=bridge -it mcr.microsoft.com/mssql-tools /opt/mssql-tools/bin/sqlcmd'
+
+#######################################################################
+# FUNCTIONS
+#######################################################################
+logs() {
+  kubectl -n $1 logs -f $2
+}
+
+rollout_history() {
+  kubectl -n $1 rollout history deployment.v1.apps/$2
+}
+
+rollout_undo() {
+  kubectl -n $1 rollout undo deployment.v1.apps/$2
+}
+
+apply_deploy() {
+  kubectl -n $1 apply -f $2
+}
+
+describe_pod() {
+  kubectl -n $1 describe pod $2
+}
+
+docker_rm_exited() {
+  docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm
+}
+
+pyclean () {
+    find . | grep -E "(__pycache__|\.egg-info|build|dist|\.pyc|\.pyo$)" | xargs rm -rf
+}
+
+#######################################################################
+# PATH
+#######################################################################
+# # Editor
+# export PATH="/opt/idea-IC-201.6668.121/bin:$PATH"
+# # Python
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+# export PATH="$PATH:$HOME/anaconda3/condabin"
+# # Go
+# export PATH="$PATH:/usr/local/go/bin"
+# export GOPATH="$HOME/go"
+# # Rust
+# export PATH="$HOME/.cargo/bin:$PATH"
+# # jvm
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+#######################################################################
+# Scripting
+#######################################################################
+# Price monitoring
+alias cadeira='if [[ ! -e /tmp/"$(date +"%m-%d-%y")" ]];
 then
     touch /tmp/"$(date +"%m-%d-%y")"
-    export price_vega_preta="$(curl https://www.kabum.com.br/cgi-local/site/produtos/descricao.cgi\?codigo\=81454\&origem\=48 | grep -Po 'price\":(\d+\.\d+)' | cut -d: -f2)"
-    export price_vega_blue="$(curl  https://www.kabum.com.br/cgi-local/site/produtos/descricao.cgi\?codigo\=81455\&origem\=48  | grep -Po 'price\":(\d+\.\d+)' | cut -d: -f2)"
+    export price_vega_preta="$(curl https://www.kabum.com.br/cgi-local/site/produtos/descricao.cgi\?codigo\=81454\&origem\=48 | grep -Po "price\":(\d+\.\d+)" | cut -d: -f2)"
+    export price_vega_blue="$(curl  https://www.kabum.com.br/cgi-local/site/produtos/descricao.cgi\?codigo\=81455\&origem\=48  | grep -Po "price\":(\d+\.\d+)" | cut -d: -f2)"
     clear
     echo \[PRICE ALERT\] cadeira vega preta: $price_vega_preta | tee -a /tmp/"$(date +"%m-%d-%y")"
     echo \[PRICE ALERT\] cadeira vega azul: $price_vega_blue | tee -a /tmp/"$(date +"%m-%d-%y")"
     sleep 15
-fi
+fi'
+
+bectl cluster-info
+}
 
