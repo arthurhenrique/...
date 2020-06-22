@@ -4,7 +4,7 @@
 [core]
 	editor = vim
 [pull]
-	rebase = false
+	rebase = true
 [alias]
     resetorigin = !git fetch origin && git reset --hard origin/master && git clean -f -d
     resetupstream = !git fetch upstream && git reset --hard upstream/master && git clean -f -d
