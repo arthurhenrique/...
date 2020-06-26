@@ -121,7 +121,10 @@ export EDITOR=nvim
 alias vimdiff='nvim -d'
 alias vim="nvim"
 alias vi="nvim"
-# intellij
+# vscode mac
+if [[ `uname -s` == "Darwin" ]]; then
+	alias code="open -a Visual\ Studio\ Code.app"
+fi
 
 # VPN
 alias vpn="cd ~/vpn; nohup ./fortisslvpn.sh &; cd -"
