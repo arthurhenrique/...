@@ -32,7 +32,7 @@ alias bd='cd "$OLDPWD"'
 # Remove a directory and all files
 alias rmd='/bin/rm  --recursive --force --verbose '
 
-# Alias's for multiple directory listing commands
+# # Alias's for multiple directory listing commands
 alias la='ls -Alh' # show hidden files
 alias lx='ls -lXBh' # sort by extension
 alias lk='ls -lSrh' # sort by size
@@ -121,8 +121,11 @@ export EDITOR=nvim
 alias vimdiff='nvim -d'
 alias vim="nvim"
 alias vi="nvim"
-# vscode mac
+
+
+# MAC
 if [[ `uname -s` == "Darwin" ]]; then
+	alias gitkraken="open -a GitKraken"
 	alias code="open -a Visual\ Studio\ Code.app"
 fi
 

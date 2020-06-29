@@ -70,7 +70,7 @@ ZSH_DISABLE_COMPFIX=true
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-completions osx)
+plugins=(git osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,5 +102,5 @@ source $ZSH/oh-my-zsh.sh
 
 [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
 
-source ~/.deps
-source ~/.profile
+source "/Users/arthurhenrique/.deps"
+source "/Users/arthurhenrique/.profile"
