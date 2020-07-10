@@ -171,6 +171,12 @@ pyclean () {
     find . | grep -E "(__pycache__|\.egg-info|build|dist|\.pyc|\.pyo$)" | xargs rm -rf
 }
 
+dockercleanup(){
+    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+
 #######################################################################
 # Init
 #######################################################################
