@@ -127,6 +127,7 @@ alias vi="nvim"
 if [[ `uname -s` == "Darwin" ]]; then
 	alias gitkraken="open -a GitKraken"
 	alias code="open -a Visual\ Studio\ Code.app"
+	export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 fi
 
 # VPN
