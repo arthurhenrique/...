@@ -189,8 +189,10 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PATH="$PATH:$HOME/anaconda3/condabin"
 # Go
-export PATH="$PATH:/usr/local/go/bin"
-export GOPATH="$HOME/go"
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 # JVM
