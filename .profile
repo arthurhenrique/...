@@ -98,6 +98,7 @@ alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
 
 # Alias's for git
+alias gitcheckoutmaster='git stash && git checkout master && git fetch --all && git pull origin master'
 alias gs='git status'
 alias ga='git add '
 alias gb='git branch '
