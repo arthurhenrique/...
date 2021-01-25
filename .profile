@@ -125,8 +125,10 @@ alias vimdiff='nvim -d'
 alias vim="nvim"
 alias vi="nvim"
 
+
+alias visnippet='vim /Users/arthurhenrique/Dropbox/trampo/snippet.sh' 
 alias vioneliners='vim /Users/arthurhenrique/Dropbox/trampo/one-liners.sh' 
-alias vipassenviron='vim /Users/arthurhenrique/Dropbox/trampo/passenviron.sh' 
+alias vipassenviron='vim /Users/arthurhenrique/Dropbox/trampo/pass-environ.sh' 
 
 # Mac
 if [[ `uname -s` == "Darwin" ]]; then
