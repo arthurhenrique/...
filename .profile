@@ -126,10 +126,6 @@ alias vim="nvim"
 alias vi="nvim"
 
 
-alias visnippet='vim /Users/arthurhenrique/Dropbox/trampo/snippet.sh' 
-alias vioneliners='vim /Users/arthurhenrique/Dropbox/trampo/one-liners.sh' 
-alias vipassenviron='vim /Users/arthurhenrique/Dropbox/trampo/pass-environ.sh' 
-
 # Mac
 if [[ `uname -s` == "Darwin" ]]; then
 	alias gitkraken="open -a GitKraken"
@@ -209,14 +205,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 #######################################################################
 # Scripting
 #######################################################################
-# Price monitoring
-alias cadeira='if [[ ! -e /tmp/"$(date +"%m-%d-%y")" ]];
-then
-    touch /tmp/"$(date +"%m-%d-%y")"
-    export price_vega_preta="$(curl https://www.kabum.com.br/cgi-local/site/produtos/descricao.cgi\?codigo\=81454\&origem\=48 | grep -Po "price\":(\d+\.\d+)" | cut -d: -f2)"
-    export price_vega_blue="$(curl  https://www.kabum.com.br/cgi-local/site/produtos/descricao.cgi\?codigo\=81455\&origem\=48  | grep -Po "price\":(\d+\.\d+)" | cut -d: -f2)"
-    clear
-    echo \[PRICE ALERT\] cadeira vega preta: $price_vega_preta | tee -a /tmp/"$(date +"%m-%d-%y")"
-    echo \[PRICE ALERT\] cadeira vega azul: $price_vega_blue | tee -a /tmp/"$(date +"%m-%d-%y")"
-    sleep 15
-fi'

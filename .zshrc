@@ -102,5 +102,5 @@ source $ZSH/oh-my-zsh.sh
 
 [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
 
-source "/Users/arthurhenrique/.deps"
-source "/Users/arthurhenrique/.profile"
+source "$HOME/Dropbox/trampo/.deps"
+source "$HOME/.profile"
