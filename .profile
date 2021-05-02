@@ -171,7 +171,7 @@ docker_rm_exited() {
   docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm
 }
 
-pyclean () {
+pyclean() {
     find . | grep -E "(__pycache__|\.egg-info|build|dist|\.pyc|\.pyo$)" | xargs rm -rf
 }
 
@@ -180,6 +180,10 @@ dockercleanup(){
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
 
+# install git diff color -> https://github.com/banga/git-split-diffs
+gdc() {
+    gd ${1:-} | git-split-diffs --color | less
+}
 
 #######################################################################
 # Init
