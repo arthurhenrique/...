@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/arthurhenrique/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -102,5 +102,14 @@ source $ZSH/oh-my-zsh.sh
 
 [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
 
-source "$HOME/Dropbox/trampo/.deps"
+cd $HOME
+
+WINDOWS="/mnt/c/Users/administrator"
+
+source "$WINDOWS/Dropbox/trampo/.deps"
 source "$HOME/.profile"
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/arthur/.sdkman"
+[[ -s "/home/arthur/.sdkman/bin/sdkman-init.sh" ]] && source "/home/arthur/.sdkman/bin/sdkman-init.sh"

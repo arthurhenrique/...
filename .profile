@@ -65,6 +65,8 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 # Search files in the current folder
 alias f="find . | grep "
 
+alias pbcopy="clip.exe"
+
 # Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
 
@@ -189,17 +191,17 @@ gdc() {
 # Init
 #######################################################################
 # ASDF
-source $HOME/.asdf/asdf.sh
+# source $HOME/.asdf/asdf.sh
 # Python
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-export PATH="$PATH:$HOME/anaconda3/condabin"
 # Go
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
+export PATH=$PATH:/usr/local/go/bin
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 # JVM
