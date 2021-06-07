@@ -20,6 +20,8 @@ alias vis='vim "+set si"'
 
 # Change directory aliases
 alias home='cd ~'
+alias drop='cd ~/Dropbox/trampo'
+alias repos='cd ~/repos'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -134,7 +136,8 @@ if [[ `uname -s` == "Darwin" ]]; then
 fi
 
 # VPN
-alias vpn="cd ~/vpn; nohup ./fortisslvpn.sh &; cd -"
+# sudo vi /etc/openfortivpn/config
+alias vpn='sudo openfortivpn'
 
 # K8s
 alias pods='kubectl get pods -n'
@@ -184,32 +187,3 @@ dockercleanup(){
 gdc() {
     gd ${1:-} | git-split-diffs --color | less
 }
-
-#######################################################################
-# Init
-#######################################################################
-# ASDF
-source $HOME/.asdf/asdf.sh
-
-# Python
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
-# Go
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
-
-# Rust
-. "$HOME/.cargo/env"
-
-# JVM
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-#######################################################################
-# Scripting
-#######################################################################
